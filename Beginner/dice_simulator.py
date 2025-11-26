@@ -13,7 +13,7 @@ def main():
         user_input = input("Roll dice again?(y/n):").lower()
         if user_input == "no":
             should_roll = False
-            print("Bay Bay👋")
+            print("Bye Bye👋")
         elif user_input == "yes":
             pass
         else:

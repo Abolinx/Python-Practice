@@ -1,6 +1,6 @@
 import re
 
-def palindrome_cheker(string):
+def palindrome_checker(string):
     string = re.sub(r'[^a-zA-Z0-9]','',string).lower()
     return (string == string[::-1])
 
@@ -10,7 +10,7 @@ def main():
 
     while True:
         
-        user_input = input("enter your word (or type 'exit')")
+        user_input = input("enter your word (or type 'exit'):")
         
         if user_input.lower() == 'exit':
             print("Bye Bye👋")
@@ -20,7 +20,7 @@ def main():
             print("please enter valid input")
             continue
 
-        if palindrome_cheker(user_input):
+        if palindrome_checker(user_input):
             print(f"Yes, {user_input} is a palindrome")
         
         else:
