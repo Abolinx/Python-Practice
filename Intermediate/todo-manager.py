@@ -23,6 +23,9 @@ def add_task():
     user_task.append(new_task)
 
 def view_tasks():
+    '''
+    Docstring for view_tasks
+    '''
     view_list = []
     Filter_or_No = input("Do you want to filter tasks?(yes/no):")
 
@@ -62,7 +65,28 @@ def view_tasks():
         
 
 def mark_as_complete():
-    pass
+    '''
+    Docstring for mark_as_complete
+    '''
+    view_list = []
+    while True:
+        mark = input("do you want marking some tasks?(yes/no):")
+        if mark.strip().lower() == "yes":
+            for task in user_task:
+                if task.state.lower() == "pending":
+                    view_list.append(task)
+            print("\n------# view of tasks #-------\n")
+            for index, task in enumerate(view_list):
+                    print(f"{index + 1}.{task.name}:{task.description}-->>{task.state} and {task.priority}")
+                    print("--------------------------------------------------")
+            
+            task_index = int(input("Which task do you want to mark?"))
+            task_to_complete = view_list.pop(task_index-1)
+            task_to_complete.state = "completed"
+            print(f"The your task ({task_to_complete.name}) is {task_to_complete.state}.")
+        else:
+            print("Maybe there are still tasks to complete.")
+            return ""
 
 def delete_task():
     pass
